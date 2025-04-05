@@ -6,7 +6,7 @@
 /*   By: anmendes <anmendes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 16:09:18 by anmendes          #+#    #+#             */
-/*   Updated: 2025/04/05 16:26:03 by anmendes         ###   ########.fr       */
+/*   Updated: 2025/04/05 16:34:33 by anmendes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,13 @@
 
 void	init_game(t_game *game, char *file_path)
 {
+	game->count = 0;
+	game->p = 0;
+	game->c = 0;
+	game->e = 0;
 	initi_map(game, file_path);
 	game->mlx = mlx_init();
 	game->win = mlx_new_window(game->mlx, game->width * 24, game->height * 24, "so_long");
-	game->count = 0;
 	init_img(game);
 	render_map(game);
 	mlx_hook(game->win, 2, 1L << 0, keyboard, game);

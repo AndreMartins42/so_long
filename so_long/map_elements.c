@@ -6,7 +6,7 @@
 /*   By: anmendes <anmendes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 16:05:26 by anmendes          #+#    #+#             */
-/*   Updated: 2025/04/05 16:25:28 by anmendes         ###   ########.fr       */
+/*   Updated: 2025/04/05 16:33:05 by anmendes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,6 @@ int	validate_player_count(t_game	*game)
 	int	j;
 
 	i = -1;
-	game->p = 0;
-	game->c = 0;
-	game->e = 0;
 	while (game->map[++i])
 	{
 		j = -1;
