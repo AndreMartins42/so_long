@@ -1,13 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   map_read.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: anmendes <anmendes@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/05 15:54:57 by anmendes          #+#    #+#             */
+/*   Updated: 2025/04/05 16:25:10 by anmendes         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
 int	ft_read_map(t_game *game, char *file_path)
 {
 	int		i;
-    int 	fd;
+	int		fd;
 	char	*line;
 	size_t	len;
-
-    fd = open(file_path, O_RDONLY);
+	
+	fd = open(file_path, O_RDONLY);
 	if (fd == -1)
 		return (close(fd), 1);
 	game->map = malloc((game->height + 1) * (sizeof(char *)));
@@ -28,28 +40,28 @@ int	ft_read_map(t_game *game, char *file_path)
 	return (close(fd), 0);
 }
 
-void ft_map_height(t_game *game, char *file_path)
+void	ft_map_height(t_game *game, char *file_path)
 {
-    int fd;
-    char *line;
+	int		fd;
+	char	*line;
 
-    fd = open(file_path, O_RDONLY);
+	fd = open(file_path, O_RDONLY);
 	if (fd == -1)
 		return ;
-    game->height = 0;
-    line = get_next_line(fd);
-    while (line)
-    {
-        game->height++;
-        free(line);
-        line = get_next_line(fd);
-    }
-    close(fd);
+	game->height = 0;
+	line = get_next_line(fd);
+	while (line)
+	{
+		game->height++;
+		free(line);
+		line = get_next_line(fd);
+	}
+	close(fd);
 }
 
-int ft_map_width(t_game *game)
+int	ft_map_width(t_game *game)
 {
-	int i;
+	int	i;
 
 	game->width = ft_strlen(game->map[0]);
 	i = 0;
@@ -68,7 +80,8 @@ int	ft_validate_char(char c)
 		return (0);
 	return (1);
 }
-int    ft_map_wall(t_game *game)
+
+int	ft_map_wall(t_game *game)
 {
 	int	i;
 	int	j;

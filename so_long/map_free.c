@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   map_free.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: anmendes <anmendes@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/05 16:04:21 by anmendes          #+#    #+#             */
+/*   Updated: 2025/04/05 16:25:21 by anmendes         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
 int	exit_game(t_game *game)
@@ -14,12 +26,15 @@ int	exit_game(t_game *game)
 	exit(0);
 	return (0);
 }
-void free_map(char **map)
+
+void	free_map(char **map)
 {
-    int i = 0;
-    if (!map)
-        return;
-    while (map[i])
-        free(map[i++]);
-    free(map);
+	int	i;
+
+	i = 0;
+	if (!map)
+		return;
+	while (map[i])
+		free(map[i++]);
+	free(map);
 }

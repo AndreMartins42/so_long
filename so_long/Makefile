@@ -18,7 +18,7 @@ MLX_DIR = minilibx-linux
 MLX_FLAGS = -L$(MLX_DIR) -lmlx_Linux -L/usr/lib -lX11 -lXext -lm
 
 SOURCES = main.c init_game.c get_next_line.c get_next_line_utils.c flood_fill.c\
-map_elements.c map_free.c map_read.c window.c
+map_elements.c map_free.c map_read.c move_player.c
 
 OBJ = $(SOURCES:.c=.o)
 

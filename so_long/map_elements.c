@@ -1,14 +1,26 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   map_elements.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: anmendes <anmendes@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/05 16:05:26 by anmendes          #+#    #+#             */
+/*   Updated: 2025/04/05 16:25:28 by anmendes         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
-int    validate_player_count(t_game	*game)
+int	validate_player_count(t_game	*game)
 {
 	int	i;
 	int	j;
 
 	i = -1;
-    game->p = 0;
-    game->c = 0;
-    game->e = 0;
+	game->p = 0;
+	game->c = 0;
+	game->e = 0;
 	while (game->map[++i])
 	{
 		j = -1;
@@ -20,9 +32,9 @@ int    validate_player_count(t_game	*game)
 				game->player_y = i;
 				game->player_x = j;
 			}
-            else if (game->map[i][j] == 'C')
+			else if (game->map[i][j] == 'C')
 				game->c++;
-            else if (game->map[i][j] == 'E')
+			else if (game->map[i][j] == 'E')
 				game->e++;
 		}
 	}

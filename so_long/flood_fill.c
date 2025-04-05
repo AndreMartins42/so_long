@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   flood_fill.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: anmendes <anmendes@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/05 16:13:40 by anmendes          #+#    #+#             */
+/*   Updated: 2025/04/05 16:26:40 by anmendes         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
 void	flood_fill(t_game *game, int x, int y)
@@ -6,7 +18,7 @@ void	flood_fill(t_game *game, int x, int y)
 		return ;
 	if (game->map_cpy[y][x] == '1' || game->map_cpy[y][x] == 'V')
 		return ;
-    game->map_cpy[y][x] = 'V';
+	game->map_cpy[y][x] = 'V';
 	flood_fill(game, x + 1, y);
 	flood_fill(game, x - 1, y);
 	flood_fill(game, x, y + 1);
@@ -33,28 +45,27 @@ int	ft_validate_map_flood_fill(t_game *game)
 	return (0);
 }
 
-char **copy_map(char **map, int height)
+char	**copy_map(char **map, int height)
 {
-    char **map_copy;
-    int i;
+	char	**map_copy;
+	int		i;
 
-    map_copy = malloc((height + 1) * sizeof(char *));
-    if (!map_copy)
-        return (NULL);
-
-    i = 0;
-    while (i < height)
-    {
-        map_copy[i] = ft_strdup(map[i]); // Copia cada linha do mapa
-        if (!map_copy[i])
-        {
-            while (--i >= 0)
-                free(map_copy[i]);
-            free(map_copy);
-            return (NULL);
-        }
-        i++;
-    }
-    map_copy[i] = NULL; // Termina o array com NULL
-    return (map_copy);
+	map_copy = malloc((height + 1) * sizeof(char *));
+	if (!map_copy)
+		return (NULL);
+	i = 0;
+	while (i < height)
+	{
+		map_copy[i] = ft_strdup(map[i]);
+		if (!map_copy[i])
+		{
+			while (--i >= 0)
+				free(map_copy[i]);
+			free(map_copy);
+			return (NULL);
+		}
+		i++;
+	}
+	map_copy[i] = NULL;
+	return (map_copy);
 }
